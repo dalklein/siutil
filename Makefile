@@ -5,12 +5,13 @@ PROG=siutil
 SRCS=siutil.c
 OBJS=$(SRCS:.c=.o)
 
+YASDI_SRC=..
 ifeq ($(DEBUG),yes)
 CFLAGS=-Wall -g -DDEBUG
 else
 CFLAGS=-O2 -pipe
 endif
-CFLAGS+=-I../include/ -I../smalib -I../libs -I../projects/generic-cmake/incprj -I../os -I../core -I../protocol
+CFLAGS+=-I$(YASDI_SRC)/include/ -I$(YASDI_SRC)/smalib -I$(YASDI_SRC)/libs -I$(YASDI_SRC)/projects/generic-cmake/incprj -I$(YASDI_SRC)/os -I$(YASDI_SRC)/core -I$(YASDI_SRC)/protocol
 LIBS=-lyasdimaster -lyasdi -lpthread
 LDFLAGS=-static
 
